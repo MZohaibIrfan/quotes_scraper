@@ -77,8 +77,8 @@ def extract_quotes(driver):
 
         # Append to list in the format required
         quotes_data.append({
-            "quote": quote_text,
             "author": author,
+            "quote": quote_text,
             "author_link": author_link,
             "tags": tags,
         })
