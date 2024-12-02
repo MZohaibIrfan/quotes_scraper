@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import chromedriver_autoinstaller
 
 
-# setting up ssl here for verification purposes
+# disabling ssl verification
 ssl._create_default_https_context = ssl._create_unverified_context
 
 #install correct chrome_driver
@@ -91,8 +91,10 @@ def save_to_json(data, filename="quotes.json"):
 
     #open file for write
     with open(filename, "w", encoding="utf-8") as f:
-        #write in json format
-        json.dump(data, f, indent=4, ensure_ascii=False)
+        json_str = json.dumps(data, indent=4, ensure_ascii=False)
+        # Replace newlines in the tags array with a single line format, for compact output that is desired.
+        json_str = json_str.replace('[\n            ', '[').replace('\n        ]', ']').replace(',\n            ', ', ')
+        f.write(json_str)
 
 # Main Execution
 if __name__ == "__main__":
