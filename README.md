@@ -16,8 +16,10 @@ This script scrapes quotes from the website [quotes.toscrape.com](http://quotes.
     ```
 
 2. Install the required Python packages:
+   ```sh
    selenium
    chromedriver-autoinstaller
+   ```
 
 ## Usage
 
